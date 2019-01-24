@@ -58,26 +58,14 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
     }
 
     private boolean verificarSeAlguemGanhou() {
-
-        if (preenhidasIguais(0, 1, 2)) {
-            return true;
-        } else if (preenhidasIguais(3, 4, 5)) {
-            return true;
-        } else if (preenhidasIguais(6, 7, 8)) {
-            return true;
-        } else if (preenhidasIguais(0, 3, 6)) {
-            return true;
-        } else if (preenhidasIguais(1, 4, 7)) {
-            return true;
-        } else if (preenhidasIguais(2, 5, 8)) {
-            return true;
-        } else if (preenhidasIguais(0, 4, 8)) {
-            return true;
-        } else if (preenhidasIguais(2, 4, 6)) {
-            return true;
-        } else {
-            return false;
-        }
+        return preenhidasIguais(0, 1, 2)
+                || preenhidasIguais(3, 4, 5)
+                || preenhidasIguais(6, 7, 8)
+                || preenhidasIguais(0, 3, 6)
+                || preenhidasIguais(1, 4, 7)
+                || preenhidasIguais(2, 5, 8)
+                || preenhidasIguais(0, 4, 8)
+                || preenhidasIguais(2, 4, 6);
     }
 
     private boolean preenhidasIguais(int p1, int p2, int p3) {
