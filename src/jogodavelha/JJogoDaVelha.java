@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,12 +41,32 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
         // Desabilitando a mesma para o usuario não preencher novamente
         btn.setEnabled(false);
 
-        // Trocando jogador
-        if (vez == 'X') {
-            vez = 'O';
+        if (verificarSeAlguemGanhou()) {
+            JOptionPane.showMessageDialog(rootPane, vez + " ganhou!");
+        } else if (verificarSeDeuVelha()) {
+            JOptionPane.showMessageDialog(rootPane, "Deu velha");
         } else {
-            vez = 'X';
+            // Trocando jogador
+            if (vez == 'X') {
+                vez = 'O';
+            } else {
+                vez = 'X';
+            }
         }
+    }
+
+    private boolean verificarSeAlguemGanhou() {
+        return false;
+    }
+
+    private boolean verificarSeDeuVelha() {
+        for (int i = 0; i < bts.size(); i++) {
+            // Se encontrar alguma posição vazia não deu velha
+            if (bts.get(i).getText().equals("")) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
