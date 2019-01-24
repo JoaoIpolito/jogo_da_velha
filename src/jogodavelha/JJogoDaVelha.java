@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jogodavelha;
 
 import java.awt.Color;
@@ -24,7 +19,6 @@ import javax.swing.JTextField;
 public class JJogoDaVelha extends JFrame implements ActionListener {
 
     ArrayList<JButton> bts = new ArrayList<>();
-    int posicao;
 
     public JJogoDaVelha() {
         setTitle("Joga da Velha!!");
