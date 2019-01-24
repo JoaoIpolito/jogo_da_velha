@@ -17,9 +17,10 @@ public class JogoDaVelha {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        JJogoDaVelha janela = new JJogoDaVelha();
-	janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	janela.setVisible(true);
+        JJogoDaVelha jogo = new JJogoDaVelha();
+	jogo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//evento de close
+        jogo.setLocationRelativeTo(null);//Abrindo Centro da tela
+	jogo.setVisible(true);
     }
     
 }

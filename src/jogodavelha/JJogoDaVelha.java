@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,37 +21,27 @@ import javax.swing.JTextField;
  *
  * @author joao
  */
-public class JJogoDaVelha extends JFrame implements ActionListener{
+public class JJogoDaVelha extends JFrame implements ActionListener {
 
-    JButton[] botoes;
+    ArrayList<JButton> bts = new ArrayList<>();
     int posicao;
 
     public JJogoDaVelha() {
         setTitle("Joga da Velha!!");
         setSize(400, 400);
         Container container = getContentPane();
-        GridLayout grid = new GridLayout(3, 3, 3, 3);
+        GridLayout grid = new GridLayout(3,3,3,3);
         container.setLayout(grid);
-        botoes = new JButton[9];
         for (int i = 0; i < 9; i++) {
-            botoes[i] = new JButton();
+            bts.add(new JButton());
+            bts.get(i).addActionListener(this);
+            container.add(bts.get(i));
         }
-        for (posicao = 0; posicao < 9; posicao++) {
-            botoes[posicao].addActionListener(this);
-        }
-        for (int i = 0; i < 9; i++) {
-            container.add(botoes[i]);
-        }
-        super.setLocationRelativeTo(null);//Abrindo Centro da tela
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        for (int i = 0; i < 9; i++) {
-            if(e.getSource().equals(botoes[i])){
-                System.out.println("Posicao; " +  i);
-            }
-        }
+        System.out.println("Posicao; " + bts.indexOf(e.getSource()));
     }
 
 }
