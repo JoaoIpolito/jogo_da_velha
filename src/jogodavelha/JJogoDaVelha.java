@@ -58,40 +58,31 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
     }
 
     private boolean verificarSeAlguemGanhou() {
-  
-		if(bts.get(0).getText().equals("X") && bts.get(1).getText().equals("X") && bts.get(2).getText().equals("X") ||
-			bts.get(0).getText().equals("O") && bts.get(1).getText().equals("O") && bts.get(2).getText().equals("O"))
-				return true;
-   					
-		else if(bts.get(3).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(5).getText().equals("X") ||
-				bts.get(3).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(5).getText().equals("O"))
-					return true;
-				
-		else if(bts.get(6).getText().equals("X") && bts.get(7).getText().equals("X") && bts.get(8).getText().equals("X") ||
-				bts.get(6).getText().equals("O") && bts.get(7).getText().equals("O") && bts.get(8).getText().equals("O"))
-					return true;
-			
-		else if(bts.get(0).getText().equals("X") && bts.get(3).getText().equals("X") && bts.get(6).getText().equals("X") ||
-				bts.get(0).getText().equals("O") && bts.get(3).getText().equals("O") && bts.get(6).getText().equals("O"))
-					return true;
-	    					
-		else if(bts.get(1).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(7).getText().equals("X") ||
-				bts.get(1).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(7).getText().equals("O"))
-					return true;
-					
-		else if(bts.get(2).getText().equals("X") && bts.get(5).getText().equals("X") && bts.get(8).getText().equals("X") ||
-				bts.get(2).getText().equals("O") && bts.get(5).getText().equals("O") && bts.get(8).getText().equals("O"))
-					return true;
-				
-		else if(bts.get(0).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(8).getText().equals("X") ||
-				bts.get(0).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(8).getText().equals("O"))
-					return true;
-					
-		else if(bts.get(2).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(6).getText().equals("X") ||
-				bts.get(2).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(6).getText().equals("O"))
-					return true;
-		else
-			return false;
+
+        if (preenhidasIguais(0, 1, 2)) {
+            return true;
+        } else if (preenhidasIguais(3, 4, 5)) {
+            return true;
+        } else if (preenhidasIguais(6, 7, 8)) {
+            return true;
+        } else if (preenhidasIguais(0, 3, 6)) {
+            return true;
+        } else if (preenhidasIguais(1, 4, 7)) {
+            return true;
+        } else if (preenhidasIguais(2, 5, 8)) {
+            return true;
+        } else if (preenhidasIguais(0, 4, 8)) {
+            return true;
+        } else if (preenhidasIguais(2, 4, 6)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean preenhidasIguais(int p1, int p2, int p3) {
+        return bts.get(p1).getText().equals("X") && bts.get(p2).getText().equals("X") && bts.get(p3).getText().equals("X")
+                || bts.get(p1).getText().equals("O") && bts.get(p2).getText().equals("O") && bts.get(p3).getText().equals("O");
     }
 
     private boolean verificarSeDeuVelha() {
