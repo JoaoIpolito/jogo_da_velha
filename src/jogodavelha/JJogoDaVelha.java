@@ -43,8 +43,10 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
 
         if (verificarSeAlguemGanhou()) {
             JOptionPane.showMessageDialog(rootPane, vez + " ganhou!");
+            limpar();
         } else if (verificarSeDeuVelha()) {
             JOptionPane.showMessageDialog(rootPane, "Deu velha");
+            limpar();
         } else {
             // Trocando jogador
             if (vez == 'X') {
@@ -67,6 +69,13 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
             }
         }
         return true;
+    }
+
+    private void limpar() {
+        for (int i = 0; i < bts.size(); i++) {
+            bts.get(i).setText("");
+            bts.get(i).setEnabled(true);
+        }
     }
 
 }
