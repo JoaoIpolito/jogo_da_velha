@@ -59,39 +59,39 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
 
     private boolean verificarSeAlguemGanhou() {
   
-			if(bts.get(0).getText().equals("X") && bts.get(1).getText().equals("X") && bts.get(2).getText().equals("X") ||
-				bts.get(0).getText().equals("O") && bts.get(1).getText().equals("O") && bts.get(2).getText().equals("O"))
-					return true;
+		if(bts.get(0).getText().equals("X") && bts.get(1).getText().equals("X") && bts.get(2).getText().equals("X") ||
+			bts.get(0).getText().equals("O") && bts.get(1).getText().equals("O") && bts.get(2).getText().equals("O"))
+				return true;
    					
-			else if(bts.get(3).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(5).getText().equals("X") ||
-					bts.get(3).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(5).getText().equals("O"))
-						return true;
+		else if(bts.get(3).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(5).getText().equals("X") ||
+				bts.get(3).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(5).getText().equals("O"))
+					return true;
 				
-			else if(bts.get(6).getText().equals("X") && bts.get(7).getText().equals("X") && bts.get(8).getText().equals("X") ||
-					bts.get(6).getText().equals("O") && bts.get(7).getText().equals("O") && bts.get(8).getText().equals("O"))
-						return true;
+		else if(bts.get(6).getText().equals("X") && bts.get(7).getText().equals("X") && bts.get(8).getText().equals("X") ||
+				bts.get(6).getText().equals("O") && bts.get(7).getText().equals("O") && bts.get(8).getText().equals("O"))
+					return true;
 			
-			else if(bts.get(0).getText().equals("X") && bts.get(3).getText().equals("X") && bts.get(6).getText().equals("X") ||
-					bts.get(0).getText().equals("O") && bts.get(3).getText().equals("O") && bts.get(6).getText().equals("O"))
-						return true;
+		else if(bts.get(0).getText().equals("X") && bts.get(3).getText().equals("X") && bts.get(6).getText().equals("X") ||
+				bts.get(0).getText().equals("O") && bts.get(3).getText().equals("O") && bts.get(6).getText().equals("O"))
+					return true;
 	    					
-			else if(bts.get(1).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(7).getText().equals("X") ||
-					bts.get(1).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(7).getText().equals("O"))
-						return true;
+		else if(bts.get(1).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(7).getText().equals("X") ||
+				bts.get(1).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(7).getText().equals("O"))
+					return true;
 					
-			else if(bts.get(2).getText().equals("X") && bts.get(5).getText().equals("X") && bts.get(8).getText().equals("X") ||
-					bts.get(2).getText().equals("O") && bts.get(5).getText().equals("O") && bts.get(8).getText().equals("O"))
-						return true;
+		else if(bts.get(2).getText().equals("X") && bts.get(5).getText().equals("X") && bts.get(8).getText().equals("X") ||
+				bts.get(2).getText().equals("O") && bts.get(5).getText().equals("O") && bts.get(8).getText().equals("O"))
+					return true;
 				
-			else if(bts.get(0).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(8).getText().equals("X") ||
-					bts.get(0).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(8).getText().equals("O"))
-						return true;
+		else if(bts.get(0).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(8).getText().equals("X") ||
+				bts.get(0).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(8).getText().equals("O"))
+					return true;
 					
-			else if(bts.get(2).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(6).getText().equals("X") ||
-					bts.get(2).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(6).getText().equals("O"))
-						return true;
-			else
-				return false;
+		else if(bts.get(2).getText().equals("X") && bts.get(4).getText().equals("X") && bts.get(6).getText().equals("X") ||
+				bts.get(2).getText().equals("O") && bts.get(4).getText().equals("O") && bts.get(6).getText().equals("O"))
+					return true;
+		else
+			return false;
     }
 
     private boolean verificarSeDeuVelha() {
