@@ -2,6 +2,7 @@ package jogodavelha;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -96,6 +97,7 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
 
     private JButton novoJButton() {
         JButton b = new JButton();
+        b.setFont(new Font("", Font.BOLD, 100));
         b.setBackground(Color.decode("#fafafa"));
         return b;
     }
