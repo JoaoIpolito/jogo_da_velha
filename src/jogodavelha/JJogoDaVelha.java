@@ -1,5 +1,6 @@
 package jogodavelha;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -25,7 +26,7 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
         GridLayout grid = new GridLayout(3, 3, 3, 3);
         container.setLayout(grid);
         for (int i = 0; i < 9; i++) {
-            bts.add(new JButton());
+            bts.add(novoJButton());
             bts.get(i).addActionListener(this);
             container.add(bts.get(i));
         }
@@ -36,6 +37,8 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
         System.out.println("Posicao; " + bts.indexOf(e.getSource()));
         JButton btn = ((JButton) e.getSource());
 
+        //Add cor
+        btn.setBackground(Color.decode("#CFD8DC"));
         // Prenchendo a posicão
         btn.setText(String.valueOf(vez));
         // Desabilitando a mesma para o usuario não preencher novamente
@@ -87,7 +90,14 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
         for (int i = 0; i < bts.size(); i++) {
             bts.get(i).setText("");
             bts.get(i).setEnabled(true);
+            bts.get(i).setBackground(Color.decode("#fafafa"));
         }
+    }
+
+    private JButton novoJButton() {
+        JButton b = new JButton();
+        b.setBackground(Color.decode("#fafafa"));
+        return b;
     }
 
 }
