@@ -2,11 +2,13 @@ package jogodavelha;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -24,7 +26,8 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
         setTitle("Joga da Velha!!");
         setSize(400, 400);
         Container container = getContentPane();
-        GridLayout grid = new GridLayout(3, 3, 3, 3);
+        GridLayout grid = new GridLayout(3, 3, 10, 10);
+        container.setBackground(Color.decode("#17D4C1"));
         container.setLayout(grid);
         for (int i = 0; i < 9; i++) {
             bts.add(novoJButton());
@@ -39,7 +42,7 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
         JButton btn = ((JButton) e.getSource());
 
         //Add cor
-        btn.setBackground(Color.decode("#CFD8DC"));
+        btn.setBackground(Color.decode("#28A296"));
         // Prenchendo a posicão
         btn.setText(String.valueOf(vez));
         // Desabilitando a mesma para o usuario não preencher novamente
@@ -91,14 +94,15 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
         for (int i = 0; i < bts.size(); i++) {
             bts.get(i).setText("");
             bts.get(i).setEnabled(true);
-            bts.get(i).setBackground(Color.decode("#fafafa"));
+            bts.get(i).setBackground(Color.decode("#28A296"));
         }
     }
 
     private JButton novoJButton() {
         JButton b = new JButton();
-        b.setFont(new Font("", Font.BOLD, 100));
-        b.setBackground(Color.decode("#fafafa"));
+        b.setBorderPainted(false);
+        b.setBackground(Color.decode("#28A296"));
+        b.setFont(new Font("Arial", Font.BOLD, 100));
         return b;
     }
 
