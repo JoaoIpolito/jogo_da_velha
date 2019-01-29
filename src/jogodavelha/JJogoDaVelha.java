@@ -1,5 +1,6 @@
 package jogodavelha;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -12,6 +13,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.metal.MetalButtonUI;
 
 /**
  *
@@ -40,19 +43,20 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         System.out.println("Posicao; " + bts.indexOf(e.getSource()));
         JButton btn = ((JButton) e.getSource());
-
+        if (btn.getIcon() != null) {
+            return;
+        }
         //Add cor
         btn.setBackground(Color.decode("#28A296"));
         // Prenchendo a posicão
-        btn.setText(String.valueOf(vez));
-        // Desabilitando a mesma para o usuario não preencher novamente
-        btn.setEnabled(false);
+        btn.setName(String.valueOf(vez));
+        btn.setIcon(new ImageIcon(Class.class.getResource((vez == 'X') ? "/imgs/x.png" : "/imgs/o.png")));
 
         if (verificarSeAlguemGanhou()) {
             JOptionPane.showMessageDialog(rootPane, vez + " ganhou!");
             limpar();
         } else if (verificarSeDeuVelha()) {
-            JOptionPane.showMessageDialog(rootPane, "Deu velha");
+            JOptionPane.showMessageDialog(rootPane, "Deu velha!");
             limpar();
         } else {
             // Trocando jogador
@@ -76,14 +80,14 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
     }
 
     private boolean preenhidasIguais(int p1, int p2, int p3) {
-        return bts.get(p1).getText().equals("X") && bts.get(p2).getText().equals("X") && bts.get(p3).getText().equals("X")
-                || bts.get(p1).getText().equals("O") && bts.get(p2).getText().equals("O") && bts.get(p3).getText().equals("O");
+        return bts.get(p1).getName().equals("X") && bts.get(p2).getName().equals("X") && bts.get(p3).getName().equals("X")
+                || bts.get(p1).getName().equals("O") && bts.get(p2).getName().equals("O") && bts.get(p3).getName().equals("O");
     }
 
     private boolean verificarSeDeuVelha() {
         for (int i = 0; i < bts.size(); i++) {
             // Se encontrar alguma posição vazia não deu velha
-            if (bts.get(i).getText().equals("")) {
+            if (bts.get(i).getName().equals("")) {
                 return false;
             }
         }
@@ -92,9 +96,10 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
 
     private void limpar() {
         for (int i = 0; i < bts.size(); i++) {
-            bts.get(i).setText("");
+            bts.get(i).setName("");
             bts.get(i).setEnabled(true);
             bts.get(i).setBackground(Color.decode("#28A296"));
+            bts.get(i).setIcon(null);
         }
     }
 
@@ -103,6 +108,7 @@ public class JJogoDaVelha extends JFrame implements ActionListener {
         b.setBorderPainted(false);
         b.setBackground(Color.decode("#28A296"));
         b.setFont(new Font("Arial", Font.BOLD, 100));
+        b.setName("");
         return b;
     }
 
